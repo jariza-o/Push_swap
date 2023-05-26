@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+void ft_leaks()
+{
+	system("leaks -q push_swap");
+}
+
 void	two_order(int *num)
 {
 	int	swap;
@@ -95,17 +100,24 @@ void	three_order(int *num)
 
 int	main(int argc, char **argv)
 {
-	int	*a;
+	atexit(ft_leaks);
+	char **nums;
 	int	i;
 	int	n;
 
 	i = 0;
 	n = 1;
-	if (argc <= 2 || check_letter(argv) == 1) //Compruebo que haya más de un argumento y que no haya carácteres no deseados en el input
-	{
-		ft_printf("Error\n");
+	if (argc < 2)
 		return (0);
+	if (argc == 2)
+	{
+		nums = ft_splited(argv);
 	}
+
+
+
+
+
 	a = (int *)malloc(sizeof(int) * argc);
 	if (a == NULL)
 		return (NULL);
@@ -133,3 +145,19 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 	return (0);
 }
+
+
+*/comprueba impriemdo y leaks
+
+1º comprobar num arg y errores
+2º pasar a la lista y inexas
+3 comprobar nº de nºs : 2 -> sa; 3 -> 5 casos; +3-> pushb todos -3
+4 ordenas los 3
+
+----repetir en bucle ------
+5 target posi
+6 calculo de costes
+7 elgir coste mas barato
+8 ejectura el movimiento
+
+3º preparacion para ordenar
