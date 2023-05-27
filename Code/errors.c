@@ -12,26 +12,37 @@
 
 #include "push_swap.h"
 
-int	check_rep(int *num)
+int	check_rep(char **argv)
 {
+	int	*nums;
+	int	size;
 	int	i;
 	int	n;
 
+	size = 0;
+	i = 0;
+	n = 0;
+	while (argv[n++]) //ver si el n++ hay esta bien
+		size++;
+	nums = (int *)malloc(sizeof(int) * (size + 1)); //tiene que sumar el +1??
+	if (nums == NULL)
+		return (NULL);
+	n = 0;
+	while (argv[n++]) //ver si el n++ hay esta bien
+		nums[i] = ft_atol(argv[n]);
 	i = 1;
 	n = 0;
-	while (num[n])
+	while (nums[n])
 	{
-		while (num[i])
+		while (nums[i])
 		{
-			if (num[n] == num[i] && n != i)
-			{
-				printf("Error\n");
+			if (nums[n] == nums[i] && n != i)
 				return (1);
-			}
 			i++;
 		}
 		n++;
 	}
+	free(nums); //ver si hay que liberar o no
 	return (0);
 }
 

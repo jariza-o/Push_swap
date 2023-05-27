@@ -111,23 +111,16 @@ int	main(int argc, char **argv)
 		return (0);
 	if (argc == 2)
 		nums = ft_splited(argv);
-	if (check_error(nums) == 1)
+	else
+		nums = ++argv;
+	if (check_error(nums) == 1 || check_rep(nums) == 1)
 	{
+		//Liberar nums si está usandose (argc == 2)
 		ft_printf("Error\n");
 		return (0);
 	}
-
-	
-	if (argc == 3)
-		two_order(a);
-	else if (argc == 4)
-		three_order(a);
-	else if (argc > 4)
-	{
-
-	}
-	else
-		ft_printf("Error\n");
+	ft_push_swap(nums);
+	//Liberar nums si está usandose (argc == 2)
 	return (0);
 }
 

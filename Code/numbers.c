@@ -12,20 +12,34 @@
 
 #include "push_swap.h"
 
-char	**ft_splited(char **argv[])
+char	**ft_splited(char **argv)
 {
 	char	**split;
+	int		size;
 	int		n;
 	int		i;
 	int		j;
 	int		k;
 
-	n = 0;
+	i = 0;
+	while (argv[i++])
+		size++;
+	split = (char **)malloc(sizeof(char *) * (size + 1)); // ver si al llamar a la variable delante va el *
+	if (split == NULL)
+		return (NULL);
+	n = 1;
 	i = 0;
 	j = 0;
 	k = 0;
 	while (argv[n])
 	{
+		size = 0;
+		while (argv[n][i++])
+			size++;
+		split[n] = (char *)malloc(sizeof(char) * (size + 1));
+		if (split[n] == NULL)
+			return (NULL);
+		i = 0;
 		while (argv[n][i] != '\0')
 		{
 			if (argv[n][i] != 32)
@@ -55,7 +69,7 @@ void	ft_tolist(char **argv, t_stack stack)
 	int	n;
 
 	n = 0;
-	while(argv[n])
+	while (argv[n])
 	{
 		stack->value = ft_atol(argv[n]);
 	}
