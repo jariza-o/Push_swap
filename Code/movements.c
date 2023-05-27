@@ -40,3 +40,8 @@ void	pb(int *a, int *b)
 	a = swap_a;
 	b = swap_b;
 }
+
+void	rra(int *a, int *b)
+{
+	
+}

@@ -35,19 +35,30 @@ int	check_rep(int *num)
 	return (0);
 }
 
-int	check_letter(char **argv)
+int	check_error(char **argv)
 {
-	int	i;
-	int	n;
+	int			i;
+	int			n;
+	long int	num;
 
+	i = 0;
+	n = 0;
 	while (argv[n])
 	{
 		while (argv[n][i])
 		{
-			if (argv[n][i] != '-' && argv[n][i] < '0' && argv[n][i] > '9')
-				return(1);
+			if (ft_strcmp("", argv[n]) == 0)
+				return (1);
+			else if ((argv[n][i] == '-' || argv[n][i] == '+') &&
+			(argv[n][i + 1] == '-' || argv[n][i + 1] == '+'))
+				return (1);
+			else if (argv[n][i] < '0' && argv[n][i] > '9')
+				return (1);
 			i++;
 		}
+		num = ft_atol(argv[n]);
+		if (num < INT_MIN || num > INT_MAX) //Comprobar si el numero está entre el número mínimo y el número maximo que soporta un long int
+			return (1);
 		i = 0;
 		n++;
 	}

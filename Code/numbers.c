@@ -24,9 +24,9 @@ char	**ft_splited(char **argv[])
 	i = 0;
 	j = 0;
 	k = 0;
-	while(argv[n])
+	while (argv[n])
 	{
-		while(argv[n][i] != '\0')
+		while (argv[n][i] != '\0')
 		{
 			if (argv[n][i] != 32)
 			{
@@ -48,4 +48,15 @@ char	**ft_splited(char **argv[])
 		i = 0;
 	}
 	return (split);
+}
+
+void	ft_tolist(char **argv, t_stack stack)
+{
+	int	n;
+
+	n = 0;
+	while(argv[n])
+	{
+		stack->value = ft_atol(argv[n]);
+	}
 }

@@ -110,29 +110,14 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (argc == 2)
-	{
 		nums = ft_splited(argv);
-	}
-
-
-
-
-
-	a = (int *)malloc(sizeof(int) * argc);
-	if (a == NULL)
-		return (NULL);
-	while (n <= argc)
+	if (check_error(nums) == 1)
 	{
-		a[i] = ft_atoi(argv[n]);
-		i++;
-		n++;
-	}
-	if (check_rep(a) == 1) //Comprueba que no haya repetidos
-	{
-		printf("Error\n");
-		free(a);
+		ft_printf("Error\n");
 		return (0);
 	}
+
+	
 	if (argc == 3)
 		two_order(a);
 	else if (argc == 4)
