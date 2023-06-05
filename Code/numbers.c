@@ -64,13 +64,17 @@ char	**ft_splited(char **argv)
 	return (split);
 }
 
-void	ft_tolist(char **argv, t_stack stack)
+t_stack	*ft_tolist(char **argv)
 {
-	int	n;
+	t_stack	*stack_a;
+	int		n;
 
 	n = 0;
 	while (argv[n])
 	{
-		stack->value = ft_atol(argv[n]);
+		stack_a->value = ft_atol(argv[n]);
+		stack_a->next;
+		n++;
 	}
+	return (stack_a);
 }
