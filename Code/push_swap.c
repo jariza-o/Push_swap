@@ -98,6 +98,26 @@ void	three_order(int *num)
 	}
 }
 
+void	ft_push_swap(char **nums)
+{
+	t_stack	**stack_a;
+	t_stack	**stack_b;
+
+	stack_a = ft_complete_stack(nums);
+	stack_b = NULL;
+
+
+	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
+	if (ft_nnums(nums) == 1)
+		return (0); // NOSE SI PARA QUE NO HAGA NADA ES ASI
+	else if (ft_nnums(nums) == 2)
+		// LLAMAR A FUNCION PARA DOS NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT SA
+	else if (ft_nnums(nums) == 3)
+		// LLAMAR A FUNCION PARA 3 NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT LOS MOVS NECESARIOS
+	else
+		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS
+}
+
 int	main(int argc, char **argv)
 {
 	atexit(ft_leaks);
@@ -113,7 +133,7 @@ int	main(int argc, char **argv)
 		nums = ft_splited(argv);
 	else
 		nums = ++argv;
-	if (check_error(nums) == 1 || check_rep(nums) == 1)
+	if (check_error(nums) == 1 || check_rep(nums) == 1) // ¡¡¡VER SI EN ERRORES VE SI NO HAY NUMERO Y SI ESO ES UN ERROR
 	{
 		//Liberar nums si está usandose (argc == 2)
 		ft_printf("Error\n");

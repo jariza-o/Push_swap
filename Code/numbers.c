@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:15:49 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/05/26 17:44:16 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:31:31 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,12 @@ char	**ft_splited(char **argv)
 	return (split);
 }
 
-t_stack	*ft_tolist(char **argv)
+int	ft_nnums(char **argv)
 {
-	t_stack	*stack_a;
-	int		n;
+	int	n;
 
 	n = 0;
 	while (argv[n])
-	{
-		stack_a->value = ft_atol(argv[n]);
-		stack_a->next;
 		n++;
-	}
-	return (stack_a);
+	return (n);
 }

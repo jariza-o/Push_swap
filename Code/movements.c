@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+void	sa();
+
 void	pb(int *a, int *b)
 {
 	int	*swap_a;
