@@ -33,8 +33,8 @@ typedef struct s_stack
 char	**ft_splited(char **argv);
 
 /* Check Input Errors */
-int	check_rep(int *num);
-int	check_letter(char **argv);
+int		check_rep(int *num);
+int		check_letter(char **argv);
 
 /* STACK FUNTIONS */
 /* Move the Numbers tu the Stacks */
@@ -42,10 +42,11 @@ t_stack	*ft_complete_stack(char **argv);
 t_stack	*ft_add_to_last(t_stack **stack, t_stack *new_stack);
 t_stack	*ft_newstack(int num);
 /* Revise the Stack size */
-int	ft_stack_size(t_stack *stack);
+int		ft_stack_size(t_stack *stack);
+/* Put Index in the Stacks*/
+void	ft_index_stack(t_stack *stack, int stack_size);
 
 /* Count Numbers */
-int	ft_nnums(char **argv);
-
+int		ft_count_nums(char **argv);
 
 #endif

@@ -107,13 +107,14 @@ void	ft_push_swap(char **nums)
 	stack_a = ft_complete_stack(nums);
 	stack_b = NULL;
 	stack_size = ft_stack_size(&stack_a);
+	ft_index_stack(&stack_a, stack_size);
 
 	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
-	if (ft_nnums(nums) == 1)
+	if (ft_count_nums(nums) == 1)
 		return (0); // NOSE SI PARA QUE NO HAGA NADA ES ASI
-	else if (ft_nnums(nums) == 2)
+	else if (ft_count_nums(nums) == 2)
 		// LLAMAR A FUNCION PARA DOS NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT SA
-	else if (ft_nnums(nums) == 3)
+	else if (ft_count_nums(nums) == 3)
 		// LLAMAR A FUNCION PARA 3 NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT LOS MOVS NECESARIOS
 	else
 		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS

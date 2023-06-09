@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:15:49 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/05 19:31:31 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:13:48 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**ft_splited(char **argv)
 	return (split);
 }
 
-int	ft_nnums(char **argv)
+int	ft_count_nums(char **argv)
 {
 	int	n;
 
