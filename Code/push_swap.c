@@ -102,10 +102,11 @@ void	ft_push_swap(char **nums)
 {
 	t_stack	**stack_a;
 	t_stack	**stack_b;
+	int		stack_size;
 
 	stack_a = ft_complete_stack(nums);
 	stack_b = NULL;
-
+	stack_size = ft_stack_size(&stack_a);
 
 	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
 	if (ft_nnums(nums) == 1)

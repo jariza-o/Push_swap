@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:44:15 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/05 19:31:33 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:16:58 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*ft_complete_stack(char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		number = ft_atol(argv[i]);
+		number = ft_atoi(argv[i]);
 		ft_add_to_last(&stack_a, ft_newstack(number));
 		i++;
 	}
@@ -57,4 +57,39 @@ t_stack	*ft_newstack(int num)
 	stack->cost_b = 0;
 	stack->next = NULL; // se pone que el next es igual a null para los controladores
 	return (stack);
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+
+	if (!stack)
+		return (0);
+	while(stack != '\0')
+	{
+		stack = stack->next;
+		size++;
+	}
+	return (size);
+}
+
+void	ft_index_stack(t_stack *stack, int stack_size)
+{
+	int	*numbers;
+	t_stack *stack_copy;
+	int	i;
+
+	stack_copy = stack_a;
+	i = 0;
+	if (stack_size > 0)
+	{
+		while (stack_copy != '\0')
+		{
+			numbers[i] = stack_copy->index;
+			stack_copy = stack_copy->next;
+			i++;
+		}
+	}
 }

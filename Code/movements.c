@@ -12,7 +12,19 @@
 
 #include "push_swap.h"
 
-void	sa();
+//nose si SA es con ** o con *, creo que puede ser con la segunda
+t_stack	**sa(t_stack **stack)
+{
+	t_stack *aux1;
+	t_stack	*aux2;
+
+	aux1 = (*stack);
+	aux2 = (*stack)->next->next;
+	(*stack)->next->next = aux1;
+	(*stack)->next = aux2;
+	return (stack);
+
+}
 
 void	pb(int *a, int *b)
 {
