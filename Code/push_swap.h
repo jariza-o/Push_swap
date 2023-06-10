@@ -32,6 +32,9 @@ typedef struct s_stack
 /* Take numbers */
 char	**ft_splited(char **argv);
 
+/* Count Numbers */
+int		ft_count_nums(char **argv);
+
 /* Check Input Errors */
 int		check_rep(int *num);
 int		check_letter(char **argv);
@@ -46,7 +49,11 @@ int		ft_stack_size(t_stack *stack);
 /* Put Index in the Stacks*/
 void	ft_index_stack(t_stack *stack, int stack_size);
 
-/* Count Numbers */
-int		ft_count_nums(char **argv);
+/* MOVMENTS FUCTIONS */
+/* Swap funtions (SA, SB, SS) */
+void	ft_swap(t_stack *stack);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
 #endif
