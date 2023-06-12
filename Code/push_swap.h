@@ -30,14 +30,15 @@ typedef struct s_stack
 }	t_stack;
 
 /* Take numbers */
-char	**ft_splited(char **argv);
+// char	**ft_splited(char **argv);
 
 /* Count Numbers */
 int		ft_count_nums(char **argv);
 
 /* Check Input Errors */
-int		check_rep(int *num);
+int		check_rep(char **argv);
 int		check_letter(char **argv);
+int		check_error(char **argv);
 
 /* STACK FUNTIONS */
 /* Move the Numbers tu the Stacks */

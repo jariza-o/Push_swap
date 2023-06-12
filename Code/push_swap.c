@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void ft_leaks()
+static void ft_leaks()
 {
 	system("leaks -q push_swap");
 }
@@ -98,72 +98,69 @@ void ft_leaks()
 // 	}
 // }
 
-// void	ft_push_swap(char **nums)
-// {
-// 	t_stack	*stack_a;
-// 	t_stack	*stack_b;
-// 	int		stack_size;
-
-// 	stack_a = ft_complete_stack(nums);
-// 	stack_b = NULL;
-// 	stack_size = ft_stack_size(&stack_a);
-// 	ft_index_stack(&stack_a, stack_size);
-
-// 	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
-// 	if (ft_count_nums(nums) == 1)
-// 		return (0); // NOSE SI PARA QUE NO HAGA NADA ES ASI
-// 	else if (ft_count_nums(nums) == 2)
-// 		// LLAMAR A FUNCION PARA DOS NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT SA
-// 	else if (ft_count_nums(nums) == 3)
-// 		// LLAMAR A FUNCION PARA 3 NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT LOS MOVS NECESARIOS
-// 	else
-// 		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS
-// }
-
-// int	hola(int argc, char **argv)
-// {
-// 	atexit(ft_leaks);
-// 	char **nums;
-// 	int	i;
-// 	int	n;
-
-// 	i = 0;
-// 	n = 1;
-// 	if (argc < 2)
-// 		return (0);
-// 	if (argc == 2)
-// 		nums = ft_splited(argv);
-// 	else
-// 		nums = ++argv;
-// 	if (check_error(nums) == 1 || check_rep(nums) == 1) // ¡¡¡VER SI EN ERRORES VE SI NO HAY NUMERO Y SI ESO ES UN ERROR
-// 	{
-// 		//Liberar nums si está usandose (argc == 2)
-// 		ft_printf("Error\n");
-// 		return (0);
-// 	}
-// 	ft_push_swap(nums);
-// 	//Liberar nums si está usandose (argc == 2)
-// 	return (0);
-// }
-
-
-// MAIN DE PRUEBAS
-int	mian(void)
+void	ft_push_swap(char **nums)
 {
-	t_stack	*stack;
-	
-	stack->value = 1;
-	stack->index = 1;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		stack_size;
 
-	stack->next->value = 2;
-	stack->next->index = 2;
+	stack_a = ft_complete_stack(nums);
+	stack_b = NULL;
+	stack_size = ft_stack_size(stack_a);
+	ft_index_stack(stack_a, stack_size);
 
-	sa(*stack);
-
-	//ft_printf("\n\n %d %d \n", nums[1], nums[2]);
+	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
+	if (ft_count_nums(nums) == 1)
+		return ; // NOSE SI PARA QUE NO HAGA NADA ES ASI
+	else if (ft_count_nums(nums) == 2)
+		sa(stack_a);
+	ft_printf("\n\n %d %d \n", stack_a->value, stack_a->next->value);
+		// LLAMAR A FUNCION PARA DOS NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT SA
+//	else if (ft_count_nums(nums) == 3)
+		// LLAMAR A FUNCION PARA 3 NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT LOS MOVS NECESARIOS
+//	else
+		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS
 }
 
+int	main(int argc, char **argv)
+{
+	atexit(ft_leaks);
+	char **nums;
+	int	i;
+	int	n;
 
+	i = 0;
+	n = 1;
+	if (argc < 2)
+		return (0);
+	if (argc == 2)
+		nums = ft_split(argv[1], ' ');
+	else
+		nums = ++argv;
+	if (check_error(nums) == 1 || check_rep(nums) == 1) // ¡¡¡VER SI EN ERRORES VE SI NO HAY NUMERO Y SI ESO ES UN ERROR
+	{
+		//Liberar nums si está usandose (argc == 2)
+		ft_printf("Error\n");
+		return (0);
+	}
+	ft_push_swap(nums);
+	//Liberar nums si está usandose (argc == 2)
+ 	return (0);
+}
+
+// MAIN DE PRUEBAS
+// int	main(void)
+// {
+// 	t_stack	*stack;
+
+// 	stack = NULL;
+// 	stack->value = 1;
+// 	stack->index = 1;
+// 	stack->next->value = 2;
+// 	stack->next->index = 2;
+// 	sa(stack);
+// 	ft_printf("\n\n %d %d \n", stack->value, stack->next->value);
+// }
 // */comprueba impriemdo y leaks
 
 // 1º comprobar num arg y errores

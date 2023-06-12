@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:44:15 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/09 17:10:53 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:28:27 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_stack	*ft_add_to_last(t_stack **stack, t_stack *new_stack)
 		*stack = new_stack;
 	else
 	{
-		while (*stack && (*stack)->next != '\0')
+		while (*stack && (*stack)->next != NULL) // se pone NULL y no '\0' porque estas comparando punteros y no caracteres
 			*stack = (*stack)->next;
 		(*stack)->next = new_stack;
 	}
@@ -66,7 +66,7 @@ int	ft_stack_size(t_stack *stack)
 	size = 0;
 	if (!stack)
 		return (0);
-	while (stack != '\0')
+	while (stack != NULL)
 	{
 		stack = stack->next;
 		size++;
@@ -91,7 +91,7 @@ void	ft_index_stack(t_stack *stack, int stack_size)
 			{
 				n = aux->value; // n pasa a ser el nuevo porque es el más grande de los que se ha visto
 				larguest = aux; // larguest es igual a aux, porque hasta este momento es el numero más grande que se ha visto
-				aux = stack_a; // aux vuelve a empezar desde el principio, despues se salta el primero ya que se ha comprobado ya
+				aux = stack; // aux vuelve a empezar desde el principio, despues se salta el primero ya que se ha comprobado ya
 			}
 			aux = aux->next; // si no entra en el if(porque el siguiente numero sea mas chico que alguno de los anteriores o porque este indexado) hace un next, asi recorre todo el stack, cuando encuentre el mas grande sin indexar no va a entrar al if y larguest va a ser el mas grande
 		}
