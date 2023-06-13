@@ -15,25 +15,10 @@
 int	check_rep(char **argv)
 {
 	int	*nums;
-	int	size;
 	int	i;
 	int	n;
 
-	size = 0;
-	i = 0;
-	n = 0;
-	while (argv[n++]) //ver si el n++ hay esta bien
-		size++;
-	nums = (int *)malloc(sizeof(int) * (size)); //tiene que sumar el +1??
-	if (nums == NULL)
-		return (1); //he cambiado NULL por 1 porque tiene que devolver 1, y s1 significa que hay repetido o fallo
-	n = 0;
-	while (argv[n]) //ver si el n++ hay esta bien
-	{
-		nums[i] = ft_atoi(argv[n]);
-		i++;
-		n++;
-	}
+	nums = ft_char_to_int(argv);
 	i = 1;
 	n = 0;
 	while (nums[n])
@@ -50,6 +35,7 @@ int	check_rep(char **argv)
 		n++;
 		i = n;
 	}
+	free(nums);
 	return (0);
 }
 

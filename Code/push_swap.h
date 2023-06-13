@@ -32,8 +32,11 @@ typedef struct s_stack
 /* Take numbers */
 // char	**ft_splited(char **argv);
 
+/* Numbers funtions */
 /* Count Numbers */
 int		ft_count_nums(char **argv);
+/* Numbers in Char to Int */
+int		*ft_char_to_int(char **argv);
 
 /* Check Input Errors */
 int		check_rep(char **argv);
@@ -41,13 +44,15 @@ int		check_letter(char **argv);
 int		check_error(char **argv);
 
 /* STACK FUNTIONS */
+/* Get the last Node with information */
+t_stack	*ft_get_last_node(t_stack *stack);
 /* Move the Numbers tu the Stacks */
 t_stack	*ft_complete_stack(char **argv);
 t_stack	*ft_add_to_last(t_stack **stack, t_stack *new_stack);
 t_stack	*ft_newstack(int num);
 /* Revise the Stack size */
 int		ft_stack_size(t_stack *stack);
-/* Put Index in the Stacks*/
+/* Put Index in the Stacks */
 void	ft_index_stack(t_stack *stack, int stack_size);
 
 /* MOVMENTS FUCTIONS */
@@ -56,5 +61,20 @@ void	ft_swap(t_stack *stack);
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+/* Rotate funtions (RA, RB, RR) */
+void	ft_rotate(t_stack *stack);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+
+/* SORT OPTIONS */
+/* If only exist two numbers */
+void	ft_two_numbers(t_stack *stack_a);
+/* If only exist three numbers */
+void	ft_three_numbers(t_stack *stack_a);
+/* For more that three numbers */
+
+/* Programming Tools */
+void	ft_print_stack(t_stack *stack);
 
 #endif

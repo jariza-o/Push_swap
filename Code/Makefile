@@ -6,14 +6,15 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:56:41 by jariza-o          #+#    #+#              #
-#    Updated: 2023/06/12 13:27:39 by jariza-o         ###   ########.fr        #
+#    Updated: 2023/06/13 18:35:13 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		pushswap
 
 SRC =		push_swap.c errors.c numbers.c stacks.c \
-			Movements/swap.c \
+			Movements/swap.c Movements/rotate.c \
+			utils.c \
 
 OBJT =		$(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:59:20 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/12 11:59:53 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/13 12:14:12 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	ft_swap(t_stack *stack)
 void	sa(t_stack *stack_a)
 {
 	ft_swap(stack_a);
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack *stack_b)
 {
 	ft_swap(stack_b);
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_swap(stack_a);
 	ft_swap(stack_b);
-	ft_printf("ss");
+	ft_printf("ss\n");
 }

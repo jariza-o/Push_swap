@@ -17,87 +17,6 @@ static void ft_leaks()
 	system("leaks -q push_swap");
 }
 
-// void	two_order(int *num)
-// {
-// 	int	swap;
-
-// 	swap = 0;
-// 	if (num[0] < num[1])
-// 		ft_printf("\n");
-// 	else
-// 	{
-// 		ft_printf("a\n");
-// 		swap = num[0];
-// 		num[0] = num[1];
-// 		num[1] = swap;
-// 	}
-// }
-
-// void	three_order(int *num)
-// {
-// 	int	swap;
-
-// 	swap = 0;
-// 	if (num[0] < num[1])
-// 	{
-// 		if (num[1] < num[2])
-// 			ft_printf("\n");
-// 		else
-// 		{
-// 			swap = num[0];
-// 			num[0] = num[2];
-// 			num[2] = num[1];
-// 			num[1] = swap;
-// 			ft_printf("rra\n");
-// 			swap = num[0];
-// 			num[0] = num[1];
-// 			num[1] = swap;
-// 			ft_printf("sa\n");
-// 		}
-// 	}
-// 	else if (num[0] > num[1])
-// 	{
-// 		if (num[1] < num[3])
-// 		{
-// 			swap = num[0];
-// 			num[0] = num[1];
-// 			num[1] = swap;
-// 			ft_printf("sa\n");
-// 		}
-// 		else
-// 		{
-// 			swap = num[0];
-// 			num[0] = num[2];
-// 			num[2] = num[1];
-// 			num[1] = swap;
-// 			ft_printf("rra\n");
-// 		}
-// 	}
-// 	else
-// 	{
-// 		if (num[1] < num[2])
-// 		{
-// 			swap = num[0];
-// 			num[0] = num[1];
-// 			num[1] = num[2];
-// 			num[2] = swap;
-// 			printf("ra\n");
-// 		}
-// 		else
-// 		{
-// 			swap = num[0];
-// 			num[0] = num[1];
-// 			num[1] = num[2];
-// 			num[2] = swap;
-// 			printf("ra\n");
-// 			swap = num[0];
-// 			num[0] = num[1];
-// 			num[1] = swap;
-// 			ft_printf("sa\n");
-// 		}
-// 	}
-// }
-
 void	ft_push_swap(char **nums)
 {
 	t_stack	*stack_a;
@@ -108,18 +27,24 @@ void	ft_push_swap(char **nums)
 	stack_b = NULL;
 	stack_size = ft_stack_size(stack_a);
 	ft_index_stack(stack_a, stack_size);
-
 	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
 	if (ft_count_nums(nums) == 1)
 		return ; // NOSE SI PARA QUE NO HAGA NADA ES ASI
 	else if (ft_count_nums(nums) == 2)
-		sa(stack_a);
-	ft_printf("\n\n %d %d \n", stack_a->value, stack_a->next->value);
-		// LLAMAR A FUNCION PARA DOS NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT SA
-//	else if (ft_count_nums(nums) == 3)
-		// LLAMAR A FUNCION PARA 3 NUMEROS Y DENTRO DE ESTA FUNCION CREAR EN MOVEMMENT LOS MOVS NECESARIOS
+		ft_two_numbers(stack_a);
+	else if (ft_count_nums(nums) == 3)
+		ft_three_numbers(stack_a);
 //	else
 		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS
+	ft_printf("________ STACK PRINTED _____________\n");
+
+	int gh = 0;
+	while(gh < 10)
+	{
+		ft_printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+		gh++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -137,14 +62,14 @@ int	main(int argc, char **argv)
 		nums = ft_split(argv[1], ' ');
 	else
 		nums = ++argv;
-	if (check_error(nums) == 1 || check_rep(nums) == 1) // ¡¡¡VER SI EN ERRORES VE SI NO HAY NUMERO Y SI ESO ES UN ERROR
+	if (check_error(nums) == 1 || check_rep(nums) == 1) // ¡¡¡VER SI EN ERRORES VE SI NO HAY NUMERO Y SI ESO ES UN ERROR || VER PORWUE SE TRAGA LAS LETRAS
 	{
-		//Liberar nums si está usandose (argc == 2)
+		//Liberar nums si está usandose (argc == 2) Marina libera con función especial ver si lo puedo hacer sin esta funcion
 		ft_printf("Error\n");
 		return (0);
 	}
 	ft_push_swap(nums);
-	//Liberar nums si está usandose (argc == 2)
+	//Liberar nums si está usandose (argc == 2) Marina libera con función especial ver si lo puedo hacer sin esta funcion
  	return (0);
 }
 
