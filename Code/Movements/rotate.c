@@ -14,19 +14,16 @@
 
 void	ft_rotate(t_stack *stack)
 {
-	t_stack	*rotated;
-	t_stack	*aux;
+	t_stack	*tmp;
+	t_stack	*last;
 
-	aux = stack;
-	while (aux)
-	{
-		if (aux->next)
-			aux = aux->next;
-		else
-			break ;
-	}
-	rotated = aux;
-	rotated->next = stack->next;
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	tmp = stack;
+	*stack = (*stack)->next;
+	last = ft_get_last_node(tmp);
+	tmp->next = NULL; //porque pasa el next a NULL si despues se le asigna tmp???
+	last->next = tmp;
 }
 
 void	ra(t_stack *stack_a)
