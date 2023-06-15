@@ -37,6 +37,8 @@ typedef struct s_stack
 int		ft_count_nums(char **argv);
 /* Numbers in Char to Int */
 int		*ft_char_to_int(char **argv);
+/* Check if the numbers is sorted in stack_a */
+int	ft_is_sorted(t_stack *stack_a);
 
 /* Check Input Errors */
 int		check_rep(char **argv);
@@ -46,6 +48,8 @@ int		check_error(char **argv);
 /* STACK FUNTIONS */
 /* Get the last Node with information */
 t_stack	*ft_get_last_node(t_stack *stack);
+/* Get the penultimate Node with information */
+t_stack	*ft_get_penult_node(t_stack *stack);
 /* Move the Numbers tu the Stacks */
 t_stack	*ft_complete_stack(char **argv);
 t_stack	*ft_add_to_last(t_stack **stack, t_stack *new_stack);
@@ -62,16 +66,24 @@ void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 /* Rotate funtions (RA, RB, RR) */
-void	ft_rotate(t_stack *stack);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void	ft_rotate(t_stack **stack);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+/* Reverse Rotate funtions (RRA, RRB, RRR) */
+void	ft_reverse(t_stack **stack);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+/* Push funtions (PA, PB) */
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 
 /* SORT OPTIONS */
 /* If only exist two numbers */
 void	ft_two_numbers(t_stack *stack_a);
 /* If only exist three numbers */
-void	ft_three_numbers(t_stack *stack_a);
+void	ft_three_numbers(t_stack **stack_a);
 /* For more that three numbers */
 
 /* Programming Tools */

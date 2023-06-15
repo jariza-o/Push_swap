@@ -14,7 +14,7 @@
 
 static void ft_leaks()
 {
-	system("leaks -q push_swap");
+	system("leaks -q pushswap");
 }
 
 void	ft_push_swap(char **nums)
@@ -29,22 +29,21 @@ void	ft_push_swap(char **nums)
 	ft_index_stack(stack_a, stack_size);
 	// VER SI ESTO PUEDE QUE HAYA QUE HACERLO EN OTRAS FUNCIONES
 	if (ft_count_nums(nums) == 1)
-		return ; // NOSE SI PARA QUE NO HAGA NADA ES ASI
+		return ;
+	else if (ft_is_sorted(stack_a) == 0)
+	{
+		ft_printf("is sorted\n");
+		return ;
+	}
 	else if (ft_count_nums(nums) == 2)
 		ft_two_numbers(stack_a);
 	else if (ft_count_nums(nums) == 3)
-		ft_three_numbers(stack_a);
-//	else
-		// CREAR LO NECESARIO SI HAY MUCHOS NUEMROS
-	ft_printf("________ STACK PRINTED _____________\n");
+		ft_three_numbers(&stack_a);
+	//else
+		
 
-	int gh = 0;
-	while(gh < 10)
-	{
-		ft_printf("%d\n", stack_a->value);
-		stack_a = stack_a->next;
-		gh++;
-	}
+	ft_print_stack(stack_a);
+	//ft_print_stack(stack_b);
 }
 
 int	main(int argc, char **argv)

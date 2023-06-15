@@ -48,15 +48,15 @@ int	check_error(char **argv)
 	n = 0;
 	while (argv[n])
 	{
+		if (ft_strncmp(argv[n], "", 10) == 0) //compara
+			return (1);
 		i = 0;
 		while (argv[n][i])
 		{
-			if (ft_strncmp("", argv[n], 1) == 0) //compara
-				return (1);
-			else if ((argv[n][i] == '-' || argv[n][i] == '+') &&
+			if ((argv[n][i] == '-' || argv[n][i] == '+') &&
 			(argv[n][i + 1] == '-' || argv[n][i + 1] == '+'))
 				return (1);
-			else if (argv[n][i] < '0' && argv[n][i] > '9')
+			if (!ft_isdigit(argv[n][i]))
 				return (1);
 			i++;
 		}

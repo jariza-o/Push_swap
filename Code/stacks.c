@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:44:15 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/13 18:01:19 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:23:16 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ t_stack	*ft_add_to_last(t_stack **stack, t_stack *new_stack)
 t_stack	*ft_get_last_node(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack	*ft_get_penult_node(t_stack *stack)
+{
+	while (stack && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
