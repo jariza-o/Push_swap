@@ -39,8 +39,8 @@ void	ft_push_swap(char **nums)
 		ft_two_numbers(stack_a);
 	else if (ft_count_nums(nums) == 3)
 		ft_three_numbers(&stack_a);
-	//else
-		
+	else
+		ft_algorithm(&stack_a, &stack_b);
 
 	ft_print_stack(stack_a);
 	//ft_print_stack(stack_b);

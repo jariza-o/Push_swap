@@ -32,7 +32,7 @@ typedef struct s_stack
 /* Take numbers */
 // char	**ft_splited(char **argv);
 
-/* Numbers funtions */
+/* NUMBERS FUNTIONS */
 /* Count Numbers */
 int		ft_count_nums(char **argv);
 /* Numbers in Char to Int */
@@ -59,7 +59,7 @@ int		ft_stack_size(t_stack *stack);
 /* Put Index in the Stacks */
 void	ft_index_stack(t_stack *stack, int stack_size);
 
-/* MOVMENTS FUCTIONS */
+/* MOVMENTS FUNTIONS */
 /* Swap funtions (SA, SB, SS) */
 void	ft_swap(t_stack *stack);
 void	sa(t_stack *stack_a);
@@ -85,6 +85,15 @@ void	ft_two_numbers(t_stack *stack_a);
 /* If only exist three numbers */
 void	ft_three_numbers(t_stack **stack_a);
 /* For more that three numbers */
+
+/* ALGORITHMS FUNTIONS */
+void	ft_algorithm(t_stack **stack_a, t_stack **stack_b);
+/* Move all to Stack_b except three numbers */
+void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
+/* Assign target position in Stack_a */
+void	ft_target_position(t_stack **stack_a, t_stack **stack_b);
+/* Calculate the movement cost */
+void	ft_calculate_cost(t_stack **stack_a, t_stack **stack_b);
 
 /* Programming Tools */
 void	ft_print_stack(t_stack *stack);
