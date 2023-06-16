@@ -14,7 +14,7 @@
 
 static void ft_leaks()
 {
-	system("leaks -q pushswap");
+	system("leaks -q push_swap");
 }
 
 void	ft_push_swap(char **nums)
@@ -43,7 +43,7 @@ void	ft_push_swap(char **nums)
 		ft_algorithm(&stack_a, &stack_b);
 
 	ft_print_stack(stack_a);
-	//ft_print_stack(stack_b);
+	ft_print_stack(stack_b);
 }
 
 int	main(int argc, char **argv)

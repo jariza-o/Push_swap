@@ -38,7 +38,7 @@ int		ft_count_nums(char **argv);
 /* Numbers in Char to Int */
 int		*ft_char_to_int(char **argv);
 /* Check if the numbers is sorted in stack_a */
-int	ft_is_sorted(t_stack *stack_a);
+int		ft_is_sorted(t_stack *stack_a);
 
 /* Check Input Errors */
 int		check_rep(char **argv);
@@ -86,7 +86,7 @@ void	ft_two_numbers(t_stack *stack_a);
 void	ft_three_numbers(t_stack **stack_a);
 /* For more that three numbers */
 
-/* ALGORITHMS FUNTIONS */
+/* ALGORITHMs FUNTIONS */
 void	ft_algorithm(t_stack **stack_a, t_stack **stack_b);
 /* Move all to Stack_b except three numbers */
 void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
@@ -94,8 +94,19 @@ void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
 void	ft_target_position(t_stack **stack_a, t_stack **stack_b);
 /* Calculate the movement cost */
 void	ft_calculate_cost(t_stack **stack_a, t_stack **stack_b);
+/* Choose the cheapest option */
+void	ft_cheapest_cost(t_stack **stack_a, t_stack **stack_b);
+/* Pass the negative numbers for sume the movements and choose the cheapest */
+int		ft_abs(int cost);
+/* Movements in the Algorithm */
+void	ft_choose_move(t_stack **s_a, t_stack **s_b, int cost_a, int cost_b);
+void	ft_rotate_both(t_stack **s_a, t_stack **s_b, int *cost_a, int *cost_b);
+void	ft_reverse_both(t_stack **s_a, t_stack **s_b, int *cost_a, int *cost_b);
+void	ft_move_stack_b(t_stack **stack_b, int	*cost_b);
+void	ft_move_stack_a(t_stack **stack_a, int	*cost_a);
 
 /* Programming Tools */
 void	ft_print_stack(t_stack *stack);
+void	ft_print_list(t_stack *stack_a);
 
 #endif
