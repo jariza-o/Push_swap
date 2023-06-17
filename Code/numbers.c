@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:15:49 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/16 19:50:11 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:41:50 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,15 @@ int	*ft_char_to_int(char **argv)
 	return (nums);
 }
 
-int	ft_count_nums(char **argv)
-{
-	int	n;
-
-	n = 0;
-	while (argv[n])
-		n++;
-	return (n);
-}
-
 int	ft_is_sorted(t_stack *stack_a)
 {
-	int	n;
+	t_stack	*aux;
 
-	n = 1;
-	while (stack_a)
+	aux = stack_a;
+	while (aux->next != NULL)
 	{
-		if (stack_a->index == n)
-		{
-			n++;
-			stack_a = stack_a->next;
-		}
+		if (aux->value < aux->next->value)
+			aux = aux->next;
 		else
 			return (1);
 	}
@@ -72,27 +59,19 @@ void	ft_two_numbers(t_stack *stack_a)
 
 void	ft_three_numbers(t_stack **stack_a)
 {
-	if ((*stack_a)->index == 1)
-	{
-		if ((*stack_a)->next->index == 2)
-			return ;
-		else
-		{
-			rra(stack_a);
-			sa(*stack_a);
-		}
-	}
-	else if ((*stack_a)->index == 2)
-	{
-		if ((*stack_a)->next->index == 1)
-			sa(*stack_a);
-		else
-			rra(stack_a);
-	}
-	else
+	if ((*stack_a)->index == ft_higest_index(*stack_a))
 	{
 		ra(stack_a);
-		if ((*stack_a)->index != 1)
+		if (ft_is_sorted(*stack_a) == 1)
 			sa(*stack_a);
 	}
+	else if ((*stack_a)->next->index == ft_higest_index(*stack_a))
+	{
+		rra(stack_a);
+		if (ft_is_sorted(*stack_a) == 1)
+			sa(*stack_a);
+	}
+	else if ((*stack_a)->next->next->index == ft_higest_index(*stack_a)
+		&& ft_is_sorted(*stack_a) == 1)
+		sa(*stack_a);
 }

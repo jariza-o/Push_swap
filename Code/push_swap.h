@@ -33,8 +33,6 @@ typedef struct s_stack
 // char	**ft_splited(char **argv);
 
 /* NUMBERS FUNTIONS */
-/* Count Numbers */
-int		ft_count_nums(char **argv);
 /* Numbers in Char to Int */
 int		*ft_char_to_int(char **argv);
 /* Check if the numbers is sorted in stack_a */
@@ -58,6 +56,12 @@ t_stack	*ft_newstack(int num);
 int		ft_stack_size(t_stack *stack);
 /* Put Index in the Stacks */
 void	ft_index_stack(t_stack *stack, int stack_size);
+
+/* Free Memory */
+/* Free Stack */
+void	ft_free_stack(t_stack **stack);
+/* Free double pointer */
+void	ft_free_doublepointer(char	**pointer);
 
 /* MOVMENTS FUNTIONS */
 /* Swap funtions (SA, SB, SS) */
@@ -83,6 +87,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 /* If only exist two numbers */
 void	ft_two_numbers(t_stack *stack_a);
 /* If only exist three numbers */
+int		ft_higest_index(t_stack *stack);
 void	ft_three_numbers(t_stack **stack_a);
 /* For more that three numbers */
 
@@ -90,7 +95,10 @@ void	ft_three_numbers(t_stack **stack_a);
 void	ft_algorithm(t_stack **stack_a, t_stack **stack_b);
 /* Move all to Stack_b except three numbers */
 void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b);
+/* Calculate position */
+void	ft_position(t_stack **stack);
 /* Assign target position in Stack_a */
+int		ft_find_out_tp(t_stack **stack_a, int i_b, int i_a, int tp);
 void	ft_target_position(t_stack **stack_a, t_stack **stack_b);
 /* Calculate the movement cost */
 void	ft_calculate_cost(t_stack **stack_a, t_stack **stack_b);
@@ -104,6 +112,9 @@ void	ft_rotate_both(t_stack **s_a, t_stack **s_b, int *cost_a, int *cost_b);
 void	ft_reverse_both(t_stack **s_a, t_stack **s_b, int *cost_a, int *cost_b);
 void	ft_move_stack_b(t_stack **stack_b, int	*cost_b);
 void	ft_move_stack_a(t_stack **stack_a, int	*cost_a);
+/* Sort the stack if isn't sorted */
+void	ft_shift_stack(t_stack **stack_a);
+int		ft_lowest(t_stack **stack_a);
 
 /* Programming Tools */
 void	ft_print_stack(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 21:04:26 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/17 01:11:16 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/18 00:44:59 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	ft_algorithm(t_stack **stack_a, t_stack **stack_b)
 		ft_target_position(stack_a, stack_b);
 		ft_calculate_cost(stack_a, stack_b);
 		ft_cheapest_cost(stack_a, stack_b);
-	} //porque esto no ordena correctamente??
-	//if (!ft_is_sorted(*stack_a))
+	}
+	if (ft_is_sorted(*stack_a) == 1)
+		ft_shift_stack(stack_a);
 }
 
 void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b)
@@ -54,40 +55,57 @@ void	ft_push_to_b(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_target_position(t_stack **stack_a, t_stack **stack_b)//comprobar si pone bien en stack_b la posición donde debería estar en stack_a
 {
-	t_stack	*aux_a;
-	t_stack	*aux_b;
-	int		i;
+	t_stack	*aux;
+	int		tp;
 
-	aux_a = *stack_a;
-	aux_b = *stack_b;
-	i = 1; //ESTO PORQUE ES 0 en marina Y NO 1
-	while (aux_a)
+	ft_position(stack_a);
+	ft_position(stack_b);
+	aux = *stack_b;
+	tp = 0;
+	while (aux)
 	{
-		aux_a->pos = i;
-		aux_a = aux_a->next;
-		i++;
-	}
-	i = 1; //ESTO PORQUE ES 0 en marina Y NO 1
-	while (aux_b)
-	{
-		aux_b->pos = i;
-		aux_b = aux_b->next;
-		i++;
-	}
-	aux_a = *stack_a;
-	aux_b = *stack_b;
-	while (aux_b)
-	{
-		if (aux_b->index < aux_a->index)
-		{
-			aux_b->target_pos = aux_a->pos;
-			aux_b = aux_b->next;
-			aux_a = *stack_a;
-		}
-		else
-			aux_a = aux_a->next;
+		tp = ft_find_out_tp(stack_a, aux->index, INT_MAX, 0);
+		aux->target_pos = tp;
+		aux = aux->next;
 	}
 }
+
+// void	ft_target_position(t_stack **stack_a, t_stack **stack_b)//comprobar si pone bien en stack_b la posición donde debería estar en stack_a
+// {
+// 	t_stack	*aux_a;
+// 	t_stack	*aux_b;
+// 	int		i;
+
+// 	aux_a = *stack_a;
+// 	aux_b = *stack_b;
+// 	i = 1; //ESTO PORQUE ES 0 en marina Y NO 1
+// 	while (aux_a)
+// 	{
+// 		aux_a->pos = i;
+// 		aux_a = aux_a->next;
+// 		i++;
+// 	}
+// 	i = 1; //ESTO PORQUE ES 0 en marina Y NO 1
+// 	while (aux_b)
+// 	{
+// 		aux_b->pos = i;
+// 		aux_b = aux_b->next;
+// 		i++;
+// 	}
+// 	aux_a = *stack_a;
+// 	aux_b = *stack_b;
+// 	while (aux_b)
+// 	{
+// 		if (aux_b->index < aux_a->index)
+// 		{
+// 			aux_b->target_pos = aux_a->pos;
+// 			aux_b = aux_b->next;
+// 			aux_a = *stack_a;
+// 		}
+// 		else
+// 			aux_a = aux_a->next;
+// 	}
+// }
 
 void	ft_calculate_cost(t_stack **stack_a, t_stack **stack_b) //entender bien la funcion
 {
@@ -125,7 +143,7 @@ void	ft_cheapest_cost(t_stack **stack_a, t_stack **stack_b)
 	cheapest = INT_MAX;
 	while (aux)
 	{
-		if (ft_abs(aux->cost_a) + ft_abs(aux->cost_b) < cheapest)
+		if (ft_abs(aux->cost_a) + ft_abs(aux->cost_b) < ft_abs(cheapest))
 		{
 			cheapest = ft_abs(aux->cost_a) + ft_abs(aux->cost_b);
 			cost_a = aux->cost_a;

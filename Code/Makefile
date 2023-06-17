@@ -6,7 +6,7 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:56:41 by jariza-o          #+#    #+#              #
-#    Updated: 2023/06/17 00:43:08 by jariza-o         ###   ########.fr        #
+#    Updated: 2023/06/17 22:16:41 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME =		push_swap
 
 SRC =		push_swap.c errors.c numbers.c stacks.c algorithms.c\
 			Movements/swap.c Movements/rotate.c Movements/reverse.c Movements/push.c Movements/algorithms_movements.c\
-			algorithms_2.c utils.c \
+			algorithms_2.c algorithms_3.c stacks_2.c utils.c \
 
 OBJT =		$(SRC:.c=.o)
 
