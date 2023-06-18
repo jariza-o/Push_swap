@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-static void ft_leaks()
-{
-	system("leaks -q push_swap");
-}
+// static void ft_leaks()
+// {
+// 	system("leaks -q push_swap");
+// }
 
 void	ft_push_swap(char **nums)
 {
@@ -44,7 +44,7 @@ void	ft_push_swap(char **nums)
 
 int	main(int argc, char **argv)
 {
-	atexit(ft_leaks);
+	//atexit(ft_leaks);
 	char **nums;
 	int	i;
 
@@ -70,31 +70,3 @@ int	main(int argc, char **argv)
 		ft_free_doublepointer(nums);
 	return (0);
 }
-
-// MAIN DE PRUEBAS
-// int	main(void)
-// {
-// 	t_stack	*stack;
-
-// 	stack = NULL;
-// 	stack->value = 1;
-// 	stack->index = 1;
-// 	stack->next->value = 2;
-// 	stack->next->index = 2;
-// 	sa(stack);
-// 	ft_printf("\n\n %d %d \n", stack->value, stack->next->value);
-// }
-// */comprueba impriemdo y leaks
-
-// 1º comprobar num arg y errores
-// 2º pasar a la lista y inexas
-// 3 comprobar nº de nºs : 2 -> sa; 3 -> 5 casos; +3-> pushb todos -3
-// 4 ordenas los 3
-
-// ----repetir en bucle ------
-// 5 target posi
-// 6 calculo de costes
-// 7 elgir coste mas barato
-// 8 ejectura el movimiento
-
-// 3º preparacion para ordenar

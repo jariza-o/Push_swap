@@ -27,7 +27,7 @@ int	check_rep(char **argv)
 		{
 			if (nums[n] == nums[i] && n != i)
 			{
-				free(nums);
+				ft_printf("check rep error \n");
 				return (1);
 			}
 			i++;
@@ -35,7 +35,6 @@ int	check_rep(char **argv)
 		n++;
 		i = n;
 	}
-	free(nums);
 	return (0);
 }
 
@@ -49,16 +48,25 @@ int	check_error(char **argv)
 	while (argv[n])
 	{
 		if (ft_strncmp(argv[n], "", 10) == 0) //compara
+		{
+			ft_printf("compara error \n");
 			return (1);
+		}
 		i = 0;
 		while (argv[n][i])
 		{
 			if ((argv[n][i] == '-' || argv[n][i] == '+') &&
-			(argv[n][i + 1] == '-' || argv[n][i + 1] == '+'))
+			(argv[n][i + 1] == '-' || argv[n][i + 1] == '+' ||
+			argv[n][i + 1] == '\0'))
 				return (1);
-			if (!ft_isdigit(argv[n][i]))
-				return (1);
-			i++;
+			if ((argv[n][i] == '-' || argv[n][i] == '+'))
+				i++;
+			while (argv[n][i])
+			{
+				if (!ft_isdigit(argv[n][i]))
+					return (1);
+				i++;
+			}
 		}
 		num = ft_atol(argv[n]);
 		if (num < INT_MIN || num > INT_MAX) //Comprobar si el numero está entre el número mínimo y el número maximo que soporta un long int
