@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include	"libft/libft.h"
-# include	"ft_printf/ft_printf.h"
 # include	<stdlib.h>
 # include	<limits.h>
 
@@ -119,5 +118,10 @@ int		ft_lowest(t_stack **stack_a);
 /* Programming Tools */
 void	ft_print_stack(t_stack *stack);
 void	ft_print_list(t_stack *stack_a);
+
+/* Checker */
+void	ft_exit_error(t_stack **stack_a, t_stack **stack_b, char **nums, int i);
+void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b, char **nums, int i);
+void	ft_checker(char **nums, int i);
 
 #endif

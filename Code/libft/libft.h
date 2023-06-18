@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:31:59 by jariza-o          #+#    #+#             */
-/*   Updated: 2022/10/17 15:24:33 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/18 20:15:40 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include	<stdlib.h>
 # include	<unistd.h>
+# include   <stdarg.h>
+# include	<stdio.h>
 
 typedef struct s_list
 {
@@ -78,7 +80,37 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-/*Funtions Extra*/
-int	ft_atol(const char *str);
+/* Ft_printf */
+# define HEX_LOW_BASE "0123456789abcdef"
+# define HEX_UPP_BASE "0123456789ABCDEF"
+
+void	ft_printchar(char c, int *count);
+void	ft_printstr(char *str, int *count);
+void	ft_printnbr(int n, int *count);
+void	ft_printunsig(unsigned int n, int *count);
+void	ft_hex(unsigned long long n, int *count, char *base);
+
+void	ft_control(va_list args, char *str, int *count);
+int		ft_printf(char const *str, ...);
+
+/* Get_next_line */
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+size_t	ft_strlen_gnl(char *s);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+void	ft_bzero_gnl(void *s, size_t n);
+void	*ft_calloc_gnl(size_t count, size_t size);
+char	*ft_strchr_gnl(char *s, int c);
+
+char	*ft_readfile(int fd, char	*buf);
+char	*ft_line(char *buf);
+char	*ft_removeline(char *buf);
+char	*get_next_line(int fd);
+
+/*Functions Extra*/
+int		ft_atol(const char *str);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 11:41:33 by jariza-o          #+#    #+#             */
-/*   Updated: 2022/11/28 20:16:42 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/18 18:18:13 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_printchar(char c, int *count)
 {
