@@ -6,7 +6,7 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:56:41 by jariza-o          #+#    #+#              #
-#    Updated: 2023/06/19 18:51:42 by jariza-o         ###   ########.fr        #
+#    Updated: 2023/06/19 19:54:04 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ OBJT =		$(SRC:.c=.o)
 SRCBONUS =	checker.c stacks_2.c numbers.c errors.c stacks.c algorithms_2.c \
 			Movements/swap.c Movements/rotate.c Movements/reverse.c \
 			Movements_checker/swap.c Movements_checker/rotate.c Movements_checker/reverse.c Movements_checker/push.c \
+			utils.c \
 
 BONUS_OBJT =	$(SRCBONUS:.c=.o)
 

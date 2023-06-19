@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:16 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/19 19:38:30 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/19 20:03:05 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**ft_mov_list(void)
 		if (op_2 == NULL)
 			op_3 = ft_strdup(op_1);
 		else
-			op_3 = ft_strjoin(op_1, op_2);
+			op_3 = ft_strjoin(op_2, op_1);
 		free (op_1);
 		free (op_2);
 		op_1 = get_next_line(0);
