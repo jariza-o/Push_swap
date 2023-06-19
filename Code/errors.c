@@ -26,12 +26,16 @@ int	check_rep(char **argv)
 		while (nums[i])
 		{
 			if (nums[n] == nums[i] && n != i)
+			{
+				free(nums);
 				return (1);
+			}
 			i++;
 		}
 		n++;
 		i = n;
 	}
+	free(nums);
 	return (0);
 }
 
