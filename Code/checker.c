@@ -6,23 +6,21 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:16 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/19 01:25:45 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:24:06 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_exit_error(t_stack **stack_a, t_stack **stack_b, char **nums, int i)
+void	ft_exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_printf("Error\n");
-	if (i == 1)
-		ft_free_doublepointer(nums);
 	ft_free_stack(stack_a);
 	ft_free_stack(stack_b);
 	exit(1);
 }
 
-void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b, char **nums, int i)
+void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b)
 {
 	if (ft_strcmp(op, "sa\n") == 0)
 		sa(*s_a);
@@ -47,10 +45,10 @@ void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b, char **nums, int i)
 	else if (ft_strcmp(op, "rrr\n") == 0)
 		rrr(s_a, s_b);
 	else
-		ft_exit_error(s_a, s_b, nums, i);
+		ft_exit_error(s_a, s_b);
 }
 
-void	ft_checker(char **nums, int i)
+void	ft_checker(char **nums)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -61,7 +59,7 @@ void	ft_checker(char **nums, int i)
 	op = get_next_line(0);
 	while (op)
 	{
-		ft_do_op(op, &stack_a, &stack_b, nums, i);
+		ft_do_op(op, &stack_a, &stack_b);
 		free (op);
 		op = get_next_line(0);
 	}
@@ -88,14 +86,15 @@ int	main(int argc, char **argv)
 	}
 	else
 		nums = ++argv;
-	if (check_error(nums) == 1 || check_rep(nums) == 1)
+	if (check_error(nums) == 1 || check_rep(nums) == 1
+		|| ft_check_min_max(nums) == 1)
 	{
 		if (i == 1)
 			ft_free_doublepointer(nums);
 		ft_printf("Error\n");
 		return (0);
 	}
-	ft_checker(nums, i);
+	ft_checker(nums);
 	if (i == 1)
 		ft_free_doublepointer(nums);
 	return (0);

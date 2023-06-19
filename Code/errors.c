@@ -26,10 +26,7 @@ int	check_rep(char **argv)
 		while (nums[i])
 		{
 			if (nums[n] == nums[i] && n != i)
-			{
-				ft_printf("check rep error \n");
 				return (1);
-			}
 			i++;
 		}
 		n++;
@@ -38,11 +35,19 @@ int	check_rep(char **argv)
 	return (0);
 }
 
+int	ft_signo(char **argv, int n, int i)
+{
+	if ((argv[n][i] == '-' || argv[n][i] == '+') &&
+		(argv[n][i + 1] == '-' || argv[n][i + 1] == '+' ||
+		argv[n][i + 1] == '\0'))
+		return (1);
+	return (0);
+}
+
 int	check_error(char **argv)
 {
 	int			i;
 	int			n;
-	long int	num;
 
 	n = 0;
 	while (argv[n])
@@ -52,9 +57,7 @@ int	check_error(char **argv)
 		i = 0;
 		while (argv[n][i])
 		{
-			if ((argv[n][i] == '-' || argv[n][i] == '+') &&
-			(argv[n][i + 1] == '-' || argv[n][i + 1] == '+' ||
-			argv[n][i + 1] == '\0'))
+			if (ft_signo(argv, n, i) == 1)
 				return (1);
 			if ((argv[n][i] == '-' || argv[n][i] == '+'))
 				i++;
@@ -65,6 +68,19 @@ int	check_error(char **argv)
 				i++;
 			}
 		}
+		n++;
+	}
+	return (0);
+}
+
+int	ft_check_min_max(char **argv)
+{
+	int			n;
+	long int	num;
+
+	n = 0;
+	while (argv[n])
+	{
 		num = ft_atol(argv[n]);
 		if (num < INT_MIN || num > INT_MAX)
 			return (1);

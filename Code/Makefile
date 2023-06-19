@@ -6,7 +6,7 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 11:56:41 by jariza-o          #+#    #+#              #
-#    Updated: 2023/06/18 20:25:16 by jariza-o         ###   ########.fr        #
+#    Updated: 2023/06/19 17:35:43 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,10 @@ CFLAGS =	-Wall -Werror -Wextra
 
 LIBFT =		libft/libft.a
 
+GREEN		=		\033[0;32m
+RED			=		\033[0;31m
+END			=		\033[0m
+
 .c.o:
 		gcc ${CFLAGS} -c $< -o ${<:.c=.o}
 
@@ -37,20 +41,24 @@ all:		$(NAME)
 $(NAME): ${OBJT}
 			make -C libft
 			gcc ${CFLAGS} ${OBJT} ${LIBFT} -o ${NAME}
+			@echo "$(GREEN)Push_swap Ready"
 
 $(BONUS): ${BONUS_OBJT}
 			make -C libft
 			gcc ${CFLAGS} ${BONUS_OBJT} ${LIBFT} -o ${BONUS}
+			@echo "$(GREEN)Checker ready"
 
 bonus: $(BONUS)
 
 clean:		
-			make -C libft fclean
-			rm -f ${OBJT}
-			rm -f ${BONUS_OBJT}
+			@rm -f ${OBJT}
+			@rm -f ${BONUS_OBJT}
+			@echo "$(RED)Compiled objects have been removed"
 
 fclean: 	clean
-			rm -f ${NAME} ${BONUS}
+			@rm -f ${NAME} ${BONUS}
+			@make fclean -s -C libft
+			@echo "$(RED)Executables have been removed"
 
 re: 		fclean all
 

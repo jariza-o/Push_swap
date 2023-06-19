@@ -19,12 +19,12 @@
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
-	int	pos;
-	int	target_pos;
-	int	cost_a;
-	int	cost_b;
+	int				value;
+	int				index;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -37,7 +37,9 @@ int		ft_is_sorted(t_stack *stack_a);
 /* Check Input Errors */
 int		check_rep(char **argv);
 int		check_letter(char **argv);
+int		ft_signo(char **argv, int n, int i);
 int		check_error(char **argv);
+int		ft_check_min_max(char **argv);
 
 /* STACK FUNTIONS */
 /* Get the last Node with information */
@@ -117,8 +119,8 @@ void	ft_print_stack(t_stack *stack);
 void	ft_print_list(t_stack *stack_a);
 
 /* Checker */
-void	ft_exit_error(t_stack **stack_a, t_stack **stack_b, char **nums, int i);
-void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b, char **nums, int i);
-void	ft_checker(char **nums, int i);
+void	ft_exit_error(t_stack **stack_a, t_stack **stack_b);
+void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b);
+void	ft_checker(char **nums);
 
 #endif

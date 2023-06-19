@@ -51,7 +51,8 @@ int	main(int argc, char **argv)
 	}
 	else
 		nums = ++argv;
-	if (check_error(nums) == 1 || check_rep(nums) == 1)
+	if (check_error(nums) == 1 || check_rep(nums) == 1
+		|| ft_check_min_max(nums) == 1)
 	{
 		if (i == 1)
 			ft_free_doublepointer(nums);
