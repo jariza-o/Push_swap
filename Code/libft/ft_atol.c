@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 20:40:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2022/10/03 19:37:31 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:26:02 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atol(const char *str)
+long int	ft_atol(const char *str)
 {
 	int			count;
 	int			signo;

@@ -56,9 +56,9 @@ int	check_error(char **argv)
 	n = 0;
 	while (argv[n])
 	{
-		if (ft_strncmp(argv[n], "", 10) == 0)
-			return (1);
 		i = 0;
+		if (ft_strcmp(argv[n], "") == 0)
+			return (1);
 		while (argv[n][i])
 		{
 			if (ft_signo(argv, n, i) == 1)
@@ -91,4 +91,18 @@ int	ft_check_min_max(char **argv)
 		n++;
 	}
 	return (0);
+}
+
+int	ft_space_errors(char *argv)
+{
+	int	n;
+
+	n = 0;
+	while (argv[n])
+	{
+		if (argv[n] != ' ' && argv[n] != '\t')
+			return (0);
+		n++;
+	}
+	return (1);
 }

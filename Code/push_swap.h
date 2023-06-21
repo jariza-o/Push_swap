@@ -28,7 +28,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-/* NUMBERS FUNTIONS */
+/* NUMBERS FUNCTIONS */
 /* Numbers in Char to Int */
 int		*ft_char_to_int(char **argv);
 /* Check if the numbers is sorted in stack_a */
@@ -40,8 +40,9 @@ int		check_letter(char **argv);
 int		ft_signo(char **argv, int n, int i);
 int		check_error(char **argv);
 int		ft_check_min_max(char **argv);
+int		ft_space_errors(char *argv);
 
-/* STACK FUNTIONS */
+/* STACK FUNCTIONS */
 /* Get the last Node with information */
 t_stack	*ft_get_last_node(t_stack *stack);
 /* Get the penultimate Node with information */
@@ -61,23 +62,23 @@ void	ft_free_stack(t_stack **stack);
 /* Free double pointer */
 void	ft_free_doublepointer(char	**pointer);
 
-/* MOVMENTS FUNTIONS */
-/* Swap funtions (SA, SB, SS) */
+/* MOVEMENTS FUNCTIONS */
+/* Swap functions (SA, SB, SS) */
 void	ft_swap(t_stack *stack);
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-/* Rotate funtions (RA, RB, RR) */
+/* Rotate functions (RA, RB, RR) */
 void	ft_rotate(t_stack **stack);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-/* Reverse Rotate funtions (RRA, RRB, RRR) */
+/* Reverse Rotate functions (RRA, RRB, RRR) */
 void	ft_reverse(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-/* Push funtions (PA, PB) */
+/* Push functions (PA, PB) */
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 

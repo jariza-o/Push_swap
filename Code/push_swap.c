@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
+	if (argc == 2 && ft_space_errors(argv[1]) == 0)
 	{
 		nums = ft_split(argv[1], ' ');
 		i = 1;
