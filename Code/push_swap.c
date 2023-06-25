@@ -22,10 +22,11 @@ void	ft_push_swap(char **nums)
 	stack_b = NULL;
 	stack_size = ft_stack_size(stack_a);
 	ft_index_stack(stack_a, stack_size);
-	if (ft_stack_size(stack_a) == 1)
+	if ((ft_stack_size(stack_a) == 1) || (ft_is_sorted(stack_a) == 0))
+	{
+		ft_free_stack(&stack_a);
 		return ;
-	else if (ft_is_sorted(stack_a) == 0)
-		return ;
+	}
 	else if (ft_stack_size(stack_a) == 2)
 		ft_two_numbers(stack_a);
 	else if (ft_stack_size(stack_a) == 3)
