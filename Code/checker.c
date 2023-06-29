@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:16 by jariza-o          #+#    #+#             */
-/*   Updated: 2023/06/19 20:03:05 by jariza-o         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:49:58 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,76 +22,47 @@ void	ft_exit_error(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b)
 {
-	if (ft_strcmp(op, "sa") == 0)
+	if (ft_strcmp(op, "sa\n") == 0)
 		sa_checker(*s_a);
-	else if (ft_strcmp(op, "sb") == 0)
+	else if (ft_strcmp(op, "sb\n") == 0)
 		sb_checker(*s_b);
-	else if (ft_strcmp(op, "ss") == 0)
+	else if (ft_strcmp(op, "ss\n") == 0)
 		ss_checker(*s_a, *s_b);
-	else if (ft_strcmp(op, "pa") == 0)
+	else if (ft_strcmp(op, "pa\n") == 0)
 		pa_checker(s_a, s_b);
-	else if (ft_strcmp(op, "pb") == 0)
+	else if (ft_strcmp(op, "pb\n") == 0)
 		pb_checker(s_a, s_b);
-	else if (ft_strcmp(op, "ra") == 0)
+	else if (ft_strcmp(op, "ra\n") == 0)
 		ra_checker(s_a);
-	else if (ft_strcmp(op, "rb") == 0)
+	else if (ft_strcmp(op, "rb\n") == 0)
 		rb_checker(s_b);
-	else if (ft_strcmp(op, "rr") == 0)
+	else if (ft_strcmp(op, "rr\n") == 0)
 		rr_checker(s_a, s_b);
-	else if (ft_strcmp(op, "rra") == 0)
+	else if (ft_strcmp(op, "rra\n") == 0)
 		rra_checker(s_a);
-	else if (ft_strcmp(op, "rrb") == 0)
+	else if (ft_strcmp(op, "rrb\n") == 0)
 		rrb_checker(s_b);
-	else if (ft_strcmp(op, "rrr") == 0)
+	else if (ft_strcmp(op, "rrr\n") == 0)
 		rrr_checker(s_a, s_b);
 	else
 		ft_exit_error(s_a, s_b);
 }
 
-char	**ft_mov_list(void)
-{
-	char	*op_1;
-	char	*op_2;
-	char	*op_3;
-	char	**splitted;
-
-	op_1 = get_next_line(0);
-	op_3 = NULL;
-	while (op_1)
-	{
-		op_2 = op_3;
-		if (op_2 == NULL)
-			op_3 = ft_strdup(op_1);
-		else
-			op_3 = ft_strjoin(op_2, op_1);
-		free (op_1);
-		free (op_2);
-		op_1 = get_next_line(0);
-	}
-	splitted = ft_split(op_3, '\n');
-	free(op_3);
-	return (splitted);
-}
-
-void	ft_checker(char **nums, int i)
+void	ft_checker(char **nums)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**mov_lst;
-	int		n;
+	char	*op;
 
 	stack_a = ft_complete_stack(nums);
-	if (i == 1)
-		ft_free_doublepointer(nums);
 	stack_b = NULL;
-	mov_lst = ft_mov_list();
-	n = 0;
-	while (mov_lst[n])
+	op = get_next_line(0);
+	while (op)
 	{
-		ft_do_op(mov_lst[n], &stack_a, &stack_b);
-		n++;
+		ft_do_op(op, &stack_a, &stack_b);
+		free (op);
+		op = get_next_line(0);
 	}
-	ft_free_doublepointer(mov_lst);
 	if (ft_is_sorted(stack_a) == 0)
 		ft_printf("OK\n");
 	else
@@ -123,6 +94,8 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (0);
 	}
-	ft_checker(nums, i);
+	ft_checker(nums);
+	if (i == 1)
+		ft_free_doublepointer(nums);
 	return (0);
 }

@@ -122,8 +122,8 @@ void	ft_print_list(t_stack *stack_a);
 /* Checker */
 void	ft_exit_error(t_stack **stack_a, t_stack **stack_b);
 void	ft_do_op(char *op, t_stack **s_a, t_stack **s_b);
-char	**ft_mov_list(void);
-void	ft_checker(char **nums, int i);
+// char	**ft_mov_list(void);
+void	ft_checker(char **nums);
 /* Movements Checkers */
 void	rra_checker(t_stack **stack_a);
 void	rrb_checker(t_stack **stack_b);
